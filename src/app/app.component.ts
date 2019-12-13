@@ -11,10 +11,12 @@ export class AppComponent  {
   @ViewChild(HelloComponent,{static:false})hello:HelloComponent;
   @ViewChild('pRef', {static: false}) pRef: ElementRef;
   @ViewChildren(HelloComponent) hellos: QueryList<any>;
+   @ViewChild("tref", {static: false}) tref: ElementRef;
    ngAfterViewInit() {
     console.log('Hello ', this.hello.name); 
     console.log(this.pRef.nativeElement.innerHTML); 
     this.pRef.nativeElement.innerHTML = "DOM updated successfully!!!"; 
     this.hellos.forEach(hello => console.log(hello));
+      console.log(this.tref.nativeElement.textContent);
   }
 }
